@@ -1,3 +1,4 @@
+import type { InternalAxiosRequestConfig } from 'axios'
 import instance from './index'
 /**
  * @param {String} method  請求的方法：get、post、delete、put
@@ -6,10 +7,16 @@ import instance from './index'
  * @param {Object} config  請求的配置
  * @returns {Promise}     返回一個promise對象，其實就相當於axios請求數據的返回值
  */
-const axios = ({ method, url, data, config }: any) => {
+interface IAxios {
+  method: string
+  url: string
+  data?: object | undefined
+  config?: InternalAxiosRequestConfig
+}
+const axios = ({ method, url, data, config }: IAxios) => {
   method = method.toLowerCase()
   if (method === 'post') {
-    return instance.post(url, data, { ...config })
+    return instance.post(url, data, { ...config }) as any
   } else if (method === 'get') {
     return instance.get(url, {
       params: data,
@@ -22,8 +29,10 @@ const axios = ({ method, url, data, config }: any) => {
     })
   } else if (method === 'put') {
     return instance.put(url, data, { ...config })
+  } else if (method === 'patch') {
+    return instance.put(url, data, { ...config })
   } else {
-    return false
+    return undefined
   }
 }
 export { axios }
