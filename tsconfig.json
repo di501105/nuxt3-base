@@ -3,7 +3,7 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     // ...
-    "types": ["element-plus/global"],
+    "types": ["element-plus/global", "unplugin-icons/types/vue"],
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -11,11 +11,13 @@
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
+    "inlineSources": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceRoot": "/"
   }
 }

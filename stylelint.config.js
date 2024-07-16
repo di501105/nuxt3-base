@@ -4,16 +4,11 @@ module.exports = {
     'stylelint-config-sass-guidelines',
     'stylelint-config-recommended-vue'
   ],
-  ignoreFiles: [
-    'src/assets/scss/**/*.scss'
-  ],
+  ignoreFiles: ['src/assets/scss/**/*.scss'],
   defaultSeverity: 'warning',
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
-  plugins: [
-    'stylelint-scss',
-    'stylelint-order'
-  ],
+  plugins: ['stylelint-scss', 'stylelint-order'],
   rules: {
     'max-nesting-depth': null,
     'no-empty-source': null,
@@ -106,8 +101,13 @@ module.exports = {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': null,
     'scss/at-mixin-pattern': null,
-    'max-empty-lines': null,
-    'custom-property-empty-line-before': null
+    'custom-property-empty-line-before': null,
+    'rule-empty-line-before': [
+      'always',
+      {
+        ignore: ['inside-block']
+      }
+    ]
     // 'font-family-no-missing-generic-family-keyword': null
   }
 }

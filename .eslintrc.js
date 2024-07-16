@@ -22,6 +22,15 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'vue/no-template-shadow': 'off',
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    'vue/multi-word-component-names': 'off',
+    'import/no-named-as-default': 0,
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        singleline: 'never',
+        multiline: 'always'
+      }
+    ]
   }
 }
